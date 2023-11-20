@@ -175,8 +175,14 @@ function removeFirstOccurrences(someString, substring) {
  *   removeLastOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeLastOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeLastOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+function removeLastOccurrences(someString, substring) {
+  if (someString.lastIndexOf(substring) >= 0) {
+    return (
+      someString.slice(0, someString.lastIndexOf(substring)) +
+      someString.slice(someString.lastIndexOf(substring) + substring.length)
+    );
+  }
+  return someString;
 }
 
 /**
@@ -191,8 +197,15 @@ function removeLastOccurrences(/* str, value */) {
  *   sumOfCodes('') => 0
  *   sumOfCodes() => 0
  */
-function sumOfCodes(/* str */) {
-  throw new Error('Not implemented');
+function sumOfCodes(someString) {
+  let sum = 0;
+  if (typeof someString === 'string') {
+    // eslint-disable-next-line no-plusplus
+    for (let i = 0; i < someString.length; i++) {
+      sum += someString.charCodeAt(i);
+    }
+  }
+  return sum;
 }
 
 /**
@@ -206,8 +219,8 @@ function sumOfCodes(/* str */) {
  *   startsWith('Hello World', 'World') => false
  *   startsWith('Hello World', 'Hello') => true
  */
-function startsWith(/* str, substr */) {
-  throw new Error('Not implemented');
+function startsWith(someSting, substr) {
+  return someSting.startsWith(substr);
 }
 
 /**
@@ -221,8 +234,8 @@ function startsWith(/* str, substr */) {
  *   endsWith('Hello World', 'World') => true
  *   endsWith('Hello World', 'Hello') => false
  */
-function endsWith(/* str, substr */) {
-  throw new Error('Not implemented');
+function endsWith(someString, substr) {
+  return someString.endsWith(substr);
 }
 
 /**
